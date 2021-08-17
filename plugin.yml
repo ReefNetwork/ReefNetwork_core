@@ -1,0 +1,15 @@
+name: ReefNetwork_core
+main: Ree\reef\main
+api: 3.0.0
+commands:
+  reef:
+    usage: /reef <help>
+    description: Access ReefNewteork_core
+
+  menu:
+    usage: /menu
+    description: Menu
+  m:
+    usage: /m
+    description: Menu
+version: 0.1.0
