@@ -18,42 +18,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: composer install
-        run: composer install -n --no-ansi
-
       - name: build
         run: php -d phar.readonly=0 ./build/make-phar.php enableCompressAll
 
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: CoralReef
-          path: ./build/CoralReef.phar
-
-      - name: LICENSE uploads
-        uses: actions/upload-artifact@v2
-        with:
-          name: LICENSES
-          path: ./LICENSES/
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v2
-      - run: mkdir ~/plugins
-      - name: download
-        uses: actions/download-artifact@v2
-        with:
-          name: CoralReef
-          path: plugins
-
-      - name: deploy debug server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.DEBUG_HOST }}
-          username: ${{ secrets.DEBUG_USERNAME }}
-          key: ${{ secrets.DEBUG_KEY}}
-          source: ./plugins/CoralReef.phar
-          target: /home/${{ secrets.DEBUG_USERNAME }}/pmmp/
+          name: ReefNetwork_core
+          path: ./build/ReefNetwork_core.phar

@@ -5,7 +5,7 @@
  * (C) DaisukeDaisuke(https://github.com/DaisukeDaisuke)
  */
 
-$file_phar = "build/CoralReef.phar";
+$file_phar = "build/ReefNetwork_core.phar";
 if (file_exists($file_phar)) {
     echo "Phar file already exists, overwriting...";
     echo PHP_EOL;
