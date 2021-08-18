@@ -44,8 +44,8 @@ class BonusCode implements Form
 		if (isset ($data[0])) {
 			$code = mb_strtolower($data[0]);
 			switch ($code) {
-				case "500player":
-					$item = Gatya::getGatya(0, $player)->setCount(50);
+				case "discord500":
+					$item = Gatya::getGatya(0, $player)->setCount(150);
 					if (!$player->getInventory()->canAddItem($item)) {
 						$player->sendMessage(ReefAPI::BAD . 'インベントリがいっぱいです');
 						break;
